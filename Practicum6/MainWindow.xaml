@@ -1,0 +1,61 @@
+﻿<Window x:Class="Practicum6.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Practicum6"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="300" Width="300">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Login">
+                <Grid Margin="10" Background="CornflowerBlue">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Label>Username:</Label>
+                    <TextBox x:Name="username" Grid.Column="3" Margin="0,0,0,10" />
+                    <Label Grid.Row="1">Password:</Label>
+                    <PasswordBox x:Name="passwordBox" PasswordChar="*" Grid.Row="1" Grid.Column="3" Margin="0,0,0,10" />
+
+                    <Button x:Name="Login" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Click="login">Login</Button>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Register">
+
+                <Grid Margin="10" Background="CornflowerBlue">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Label>Username:</Label>
+                    <TextBox x:Name="newname" Grid.Column="3" Margin="0,0,0,10" />
+                    <Label Grid.Row="1">Password:</Label>
+                    <PasswordBox x:Name="newpass" PasswordChar="*" Grid.Row="1" Grid.Column="3" Margin="0,0,0,10" />
+                    <Button x:Name="Register" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Click="register" RenderTransformOrigin="0.531,0.549">Register</Button>
+                </Grid>
+
+            </TabItem>
+
+        </TabControl>
+    </Grid>
+</Window>
