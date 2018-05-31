@@ -1,5 +1,5 @@
 ﻿using System.Runtime.Serialization;
-using WcfService1;
+using WcfService;
 
 namespace WebService.Models
 {
