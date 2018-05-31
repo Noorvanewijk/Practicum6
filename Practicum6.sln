@@ -4,8 +4,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.27703.2018
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practicum6", "Practicum6\Practicum6.csproj", "{373C8F23-C134-4B87-A4AE-F74A32CD9AB2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9B91C5D5-3F09-41AB-8B8E-B009C5F4C468} = {9B91C5D5-3F09-41AB-8B8E-B009C5F4C468}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebService", "WebService\WebService.csproj", "{17364674-E8C7-4559-A17D-7587B9709C54}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfService", "WcfService1\WcfService.csproj", "{9B91C5D5-3F09-41AB-8B8E-B009C5F4C468}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +20,10 @@ Global
 		{373C8F23-C134-4B87-A4AE-F74A32CD9AB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{373C8F23-C134-4B87-A4AE-F74A32CD9AB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{373C8F23-C134-4B87-A4AE-F74A32CD9AB2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{17364674-E8C7-4559-A17D-7587B9709C54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{17364674-E8C7-4559-A17D-7587B9709C54}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{17364674-E8C7-4559-A17D-7587B9709C54}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{17364674-E8C7-4559-A17D-7587B9709C54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B91C5D5-3F09-41AB-8B8E-B009C5F4C468}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B91C5D5-3F09-41AB-8B8E-B009C5F4C468}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B91C5D5-3F09-41AB-8B8E-B009C5F4C468}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B91C5D5-3F09-41AB-8B8E-B009C5F4C468}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
