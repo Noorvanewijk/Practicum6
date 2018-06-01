@@ -11,17 +11,30 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WcfService;
 
 namespace Practicum6
-{
-    /// <summary>
-    /// Interaction logic for Store.xaml
-    /// </summary>
+{ 
+
     public partial class Store : Window
     {
+        SOAPService.ServiceClient soap = new SOAPService.ServiceClient();
+
         public Store()
         {
             InitializeComponent();
+            FillListBox();
+        }
+
+        public void FillListBox()
+        {
+            var alles = soap.GetAllProducts();
+
+            winkel.Items.Clear();
+            foreach (var pr in alles)
+            {
+                winkel.Items.Add(String.Format("{1}, voorraad: {0} - prijs: {2}", pr.CurrentStock, pr.Name, pr.Price));
+            }
         }
     }
 }

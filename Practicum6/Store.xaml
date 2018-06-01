@@ -54,7 +54,7 @@
             </Grid.RowDefinitions>
             <Label Grid.Row="1">Products:</Label>
 
-            <ListBox Grid.ColumnSpan="5" Grid.Row="2" MinWidth="100">
+            <ListBox x:Name="winkel" Grid.ColumnSpan="5" Grid.Row="2" MinWidth="100">
                 <ListBoxItem>item</ListBoxItem>
                 <ListBoxItem>item</ListBoxItem>
                 <ListBoxItem>item</ListBoxItem>

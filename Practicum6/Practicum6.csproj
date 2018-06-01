@@ -147,5 +147,11 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WcfService1\WcfService.csproj">
+      <Project>{9B91C5D5-3F09-41AB-8B8E-B009C5F4C468}</Project>
+      <Name>WcfService</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
