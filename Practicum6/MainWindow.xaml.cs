@@ -29,7 +29,18 @@ namespace Practicum6
 
         private void register(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Registratie gelukt, je kunt nu inloggen!");
+            var newuser = name.Text;
+            var gebruiker = soap.RegisterUser(newuser);
+
+            if (gebruiker == null)
+            {
+                MessageBox.Show("Deze gebruiker bestaat al, gebruik een andere naam");
+            }
+            else
+            {
+
+                MessageBox.Show($"Nieuwe gebruiker {gebruiker.Username} gemaakt met wachtwoord: {gebruiker.Password}");
+            }
         }
 
         private void login(object sender, RoutedEventArgs e)
