@@ -29,12 +29,15 @@ namespace Practicum6
         public void FillListBox()
         {
             var alles = soap.GetAllProducts();
+            var gebruiker = soap.GetUserById(MainWindow.gebruiker.Id);
 
             winkel.Items.Clear();
-            foreach (var pr in alles)
-            {
-                winkel.Items.Add(String.Format("{1}, voorraad: {0} - prijs: {2}", pr.CurrentStock, pr.Name, pr.Price));
-            }
+
+            moneyLeft.Content = $"Money Left: ${ gebruiker.Funds }";
+
+            alles.ToList().ForEach(x => {
+                winkel.Items.Add(String.Format("{1}, voorraad: {0} - prijs: {2}", x.CurrentStock, x.Name, x.Price));
+            });
         }
     }
 }
