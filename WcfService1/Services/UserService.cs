@@ -43,7 +43,15 @@ namespace WebService.Services
         {
             using (var context = new databaseEntities())
             {
-                return (from x in context.Users where x.Username == username select x).Count() == 0;
+                return (from x in context.Users where x.Username == username select x).Count() == 1;
+            }
+        }
+
+        public bool LoginUser(string username, string password)
+        {
+            using (var context = new databaseEntities())
+            {
+                return (from x in context.Users where x.Username == username && x.Password == password select x).Count() == 1;
             }
         }
     }

@@ -36,6 +36,10 @@ namespace WcfService
 
         [OperationContract]
         [WebGet]
+        bool LoginUser(string username, string password);
+
+        [OperationContract]
+        [WebGet]
         List<TransactionModel> GetAllTransactions();
 
         [OperationContract]

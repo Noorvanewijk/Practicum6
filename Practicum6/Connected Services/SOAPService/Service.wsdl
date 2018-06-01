@@ -37,6 +37,12 @@
   <wsdl:message name="IService_RegisterUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:RegisterUserResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_LoginUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoginUser" />
+  </wsdl:message>
+  <wsdl:message name="IService_LoginUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginUserResponse" />
+  </wsdl:message>
   <wsdl:message name="IService_GetAllTransactions_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllTransactions" />
   </wsdl:message>
@@ -75,6 +81,10 @@
     <wsdl:operation name="RegisterUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/RegisterUser" message="tns:IService_RegisterUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/RegisterUserResponse" message="tns:IService_RegisterUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/LoginUser" message="tns:IService_LoginUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/LoginUserResponse" message="tns:IService_LoginUser_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAllTransactions">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllTransactions" message="tns:IService_GetAllTransactions_InputMessage" />
@@ -129,6 +139,15 @@
     </wsdl:operation>
     <wsdl:operation name="RegisterUser">
       <soap:operation soapAction="http://tempuri.org/IService/RegisterUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginUser">
+      <soap:operation soapAction="http://tempuri.org/IService/LoginUser" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

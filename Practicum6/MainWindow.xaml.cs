@@ -20,6 +20,8 @@ namespace Practicum6
     /// </summary>
     public partial class MainWindow : Window
     {
+        SOAPService.ServiceClient soap = new SOAPService.ServiceClient();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -32,8 +34,15 @@ namespace Practicum6
 
         private void login(object sender, RoutedEventArgs e)
         {
-            Store secondWindow = new Store();
-            secondWindow.Show();
+            if (soap.LoginUser(username.Text, passwordBox.Password))
+            {
+                Store secondWindow = new Store();
+                secondWindow.Show();
+            }
+            else
+            {
+                MessageBox.Show("Gebruikersnaam of wachtwoord is incorrect");
+            }
         }
     }
 }

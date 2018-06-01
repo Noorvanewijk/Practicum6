@@ -512,6 +512,12 @@ namespace Practicum6.SOAPService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/RegisterUser", ReplyAction="http://tempuri.org/IService/RegisterUserResponse")]
         System.Threading.Tasks.Task<Practicum6.SOAPService.UserModel> RegisterUserAsync(string username);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/LoginUser", ReplyAction="http://tempuri.org/IService/LoginUserResponse")]
+        bool LoginUser(string username, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/LoginUser", ReplyAction="http://tempuri.org/IService/LoginUserResponse")]
+        System.Threading.Tasks.Task<bool> LoginUserAsync(string username, string password);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllTransactions", ReplyAction="http://tempuri.org/IService/GetAllTransactionsResponse")]
         Practicum6.SOAPService.TransactionModel[] GetAllTransactions();
         
@@ -596,6 +602,14 @@ namespace Practicum6.SOAPService {
         
         public System.Threading.Tasks.Task<Practicum6.SOAPService.UserModel> RegisterUserAsync(string username) {
             return base.Channel.RegisterUserAsync(username);
+        }
+        
+        public bool LoginUser(string username, string password) {
+            return base.Channel.LoginUser(username, password);
+        }
+        
+        public System.Threading.Tasks.Task<bool> LoginUserAsync(string username, string password) {
+            return base.Channel.LoginUserAsync(username, password);
         }
         
         public Practicum6.SOAPService.TransactionModel[] GetAllTransactions() {

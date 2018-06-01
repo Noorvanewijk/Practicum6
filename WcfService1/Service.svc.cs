@@ -47,6 +47,11 @@ namespace WcfService
             return new UserModel(userService.CreateNewUser(username));
         }
         
+        public bool LoginUser(string username, string password)
+        {
+            return userService.LoginUser(username, password);
+        }
+
         public List<TransactionModel> GetAllTransactions()
         {
             return transactionService.GetAllTransactions();
