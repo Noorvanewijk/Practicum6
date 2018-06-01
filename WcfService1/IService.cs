@@ -36,7 +36,7 @@ namespace WcfService
 
         [OperationContract]
         [WebGet]
-        bool LoginUser(string username, string password);
+        UserModel LoginUser(string username, string password);
 
         [OperationContract]
         [WebGet]

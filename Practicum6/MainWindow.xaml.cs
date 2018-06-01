@@ -21,6 +21,7 @@ namespace Practicum6
     public partial class MainWindow : Window
     {
         SOAPService.ServiceClient soap = new SOAPService.ServiceClient();
+        public static SOAPService.UserModel gebruiker;
 
         public MainWindow()
         {
@@ -30,7 +31,7 @@ namespace Practicum6
         private void register(object sender, RoutedEventArgs e)
         {
             var newuser = name.Text;
-            var gebruiker = soap.RegisterUser(newuser);
+            gebruiker = soap.RegisterUser(newuser);
 
             if (gebruiker == null)
             {
@@ -45,7 +46,9 @@ namespace Practicum6
 
         private void login(object sender, RoutedEventArgs e)
         {
-            if (soap.LoginUser(username.Text, passwordBox.Password))
+            gebruiker = soap.LoginUser(username.Text, passwordBox.Password);
+
+            if (gebruiker != null)
             {
                 Store secondWindow = new Store();
                 secondWindow.Show();

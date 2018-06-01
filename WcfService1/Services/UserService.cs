@@ -47,11 +47,11 @@ namespace WebService.Services
             }
         }
 
-        public bool LoginUser(string username, string password)
+        public UserModel LoginUser(string username, string password)
         {
             using (var context = new databaseEntities())
             {
-                return (from x in context.Users where x.Username == username && x.Password == password select x).Count() == 1;
+                return new UserModel((from x in context.Users where x.Username == username && x.Password == password select x).First());
             }
         }
     }

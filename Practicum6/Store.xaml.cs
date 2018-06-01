@@ -19,9 +19,17 @@ namespace Practicum6
     /// </summary>
     public partial class Store : Window
     {
+        SOAPService.ServiceClient soap = new SOAPService.ServiceClient();
+        SOAPService.UserModel user;
+
         public Store()
         {
             InitializeComponent();
+            itemBox.Items.Clear();
+            user = soap.GetUserById(MainWindow.gebruiker.Id);
+            moneyLeft.Content = $"${MainWindow.gebruiker.Funds}";
+            soap.GetAllProducts().ToList().ForEach(x => {
+                itemBox.Items.Add(x.Name); });
         }
     }
 }
