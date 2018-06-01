@@ -26,14 +26,14 @@
             </Grid.RowDefinitions>
             <Label Grid.Row="1">Inventory:</Label>
 
-            <ListBox Grid.ColumnSpan="3" Grid.Row="2" MinWidth="100">
+            <ListBox Name="itemBox" Grid.ColumnSpan="3" Grid.Row="2" MinWidth="100">
                 <ListBoxItem>item</ListBoxItem>
                 <ListBoxItem>item</ListBoxItem>
                 <ListBoxItem>item</ListBoxItem>
                 <ListBoxItem>item</ListBoxItem>
             </ListBox>
 
-            <Label Grid.Row="3">Money Left:</Label>
+            <Label Name="moneyLeft" Grid.Row="3">Money Left:</Label>
         </Grid>
 
         <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />

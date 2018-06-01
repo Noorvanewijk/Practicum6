@@ -47,7 +47,7 @@ namespace WcfService
             return new UserModel(userService.CreateNewUser(username));
         }
         
-        public bool LoginUser(string username, string password)
+        public UserModel LoginUser(string username, string password)
         {
             return userService.LoginUser(username, password);
         }
