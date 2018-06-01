@@ -62,9 +62,14 @@ namespace WcfService
             return transactionService.GetTransactionById(id);
         }
         
-        public TransactionModel CreateNewTransaction(int userId, List<Purchase> purchases)
+        public TransactionModel CreateNewTransaction(int userId, List<int> productIds, List<int> productAmounts)
         {
-            return new TransactionModel(transactionService.CreateNewTransaction(userId, purchases));
+            var result = transactionService.CreateNewTransaction(userId, productIds, productAmounts);
+            if (result == null)
+            {
+                return null;
+            }
+            return new TransactionModel(result);
         }
     }
 }

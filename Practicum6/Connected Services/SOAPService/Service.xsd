@@ -60,19 +60,4 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="TransactionRowModel" nillable="true" type="tns:TransactionRowModel" />
-  <xs:complexType name="ArrayOfPurchase">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Purchase" nillable="true" type="tns:Purchase" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfPurchase" nillable="true" type="tns:ArrayOfPurchase" />
-  <xs:complexType name="Purchase">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Amount" type="xs:int" />
-      <xs:element minOccurs="0" name="Price" type="xs:decimal" />
-      <xs:element minOccurs="0" name="ProductId" type="xs:int" />
-      <xs:element minOccurs="0" name="TotalPrice" type="xs:decimal" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Purchase" nillable="true" type="tns:Purchase" />
 </xs:schema>

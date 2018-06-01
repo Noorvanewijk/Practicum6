@@ -99,15 +99,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Connected Services\SOAPService\Practicum6.SOAPService.ProductModel.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\SOAPService\Practicum6.SOAPService.TransactionModel.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\SOAPService\Practicum6.SOAPService.UserModel.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\SOAPService\Service.wsdl" />
     <None Include="Connected Services\SOAPService\Service.xsd">
       <SubType>Designer</SubType>
@@ -118,6 +109,12 @@
     <None Include="Connected Services\SOAPService\Service2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\SOAPService\Service3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\DataSources\WebService.Models.ProductModel.datasource" />
+    <None Include="Properties\DataSources\WebService.Models.TransactionModel.datasource" />
+    <None Include="Properties\DataSources\WebService.Models.UserModel.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -153,5 +150,6 @@
       <Name>WcfService</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

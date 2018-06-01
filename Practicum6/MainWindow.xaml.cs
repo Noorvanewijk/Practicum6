@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WebService.Models;
 
 namespace Practicum6
 {
@@ -21,7 +22,7 @@ namespace Practicum6
     public partial class MainWindow : Window
     {
         SOAPService.ServiceClient soap = new SOAPService.ServiceClient();
-        public static SOAPService.UserModel gebruiker;
+        public static UserModel gebruiker;
 
         public MainWindow()
         {

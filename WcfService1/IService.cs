@@ -48,6 +48,6 @@ namespace WcfService
 
         [OperationContract]
         [WebInvoke]
-        TransactionModel CreateNewTransaction(int userId, List<Purchase> purchases);
+        TransactionModel CreateNewTransaction(int userId, List<int> productIds, List<int> productAmounts);
     }
 }

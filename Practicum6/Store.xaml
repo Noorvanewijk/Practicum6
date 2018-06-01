@@ -61,7 +61,7 @@
                 <ListBoxItem>item</ListBoxItem>
             </ListBox>
 
-            <Button x:Name="add" Grid.Row="3" Grid.Column="4" Margin="122.667,25,123,22.667">Buy</Button>
+            <Button x:Name="purchase" Grid.Row="3" Grid.Column="4" Margin="122.667,25,123,22.667" Click="purchase_Click">Buy</Button>
             <Button x:Name="refresh" Grid.Row="3" Margin="216.667,25,10,22.667" Grid.Column="4">Refresh</Button>
         </Grid>
 

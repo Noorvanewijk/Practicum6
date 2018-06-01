@@ -28,32 +28,53 @@ namespace WebService.Services
             }
         }
 
-        public Transaction CreateNewTransaction(int userId, List<Purchase> purchases)
+        public Transaction CreateNewTransaction(int userId, List<int> productIds, List<int> productAmounts)
         {
             using (var context = new databaseEntities())
             {
                 var u = (from x in context.Users where x.Id == userId select x).First();
+                var purchases = new List<Purchase>();
+
+                for (int i = 0; i < productIds.Count; i++)
+                {
+                    var currentId = productIds[i];
+                    var currentAmount = productAmounts[i];
+                    purchases.Add(new Purchase(currentId, currentAmount, context.Products.Where(x => x.Id == currentId).First().Price));
+                }
+
                 var totalPrice = purchases.Sum(x => x.TotalPrice);
-                var stocks = (from x in context.Stocks from y in purchases where x.ProductId == y.ProductId select x);
+                var stocks = (from x in context.Stocks from y in productIds where x.ProductId == y select x);
 
                 if (!(u.Funds >= totalPrice))
                 {
                     return null;
                 }
-
-                if (!(purchases.All(x => stocks.All(y => y.Amount >= x.Amount))))
+                
+                for (int i = 0; i < productIds.Count; i++)
                 {
-                    return null;
+                    var currentId = productIds[i];
+                    var currentAmount = productAmounts[i];
+                    var stock = stocks.Single(x => x.Id == currentId);
+
+                    if (stock.Amount < currentAmount)
+                    {
+                        return null;
+                    }
                 }
 
                 var t = new Transaction { UserId = userId };
                 context.Transactions.Add(t);
 
                 u.Funds -= totalPrice;
-                purchases.ForEach(x => {
-                    (from y in stocks where y.ProductId == x.ProductId select y).First().Amount -= x.Amount;
-                    context.TransactionRows.Add(new TransactionRow { ProductId = x.ProductId, Amount = x.Amount, TransactionId = t.Id, Price = x.Price });
-                });
+
+                for (int i = 0; i < productIds.Count; i++)
+                {
+                    var currentId = productIds[i];
+                    var currentAmount = productAmounts[i];
+                    var currentPrice = (from x in context.Products where x.Id == currentId select x).First().Price;
+                    (from y in stocks where y.ProductId == currentId select y).First().Amount -= currentAmount;
+                    context.TransactionRows.Add(new TransactionRow { ProductId = currentId, Amount = currentAmount, TransactionId = t.Id, Price = currentPrice });
+                }
 
                 context.SaveChanges();
 

@@ -13,21 +13,18 @@ namespace WebService.Models
         [DataMember]
         public int ProductId { get;  private set; }
         [DataMember]
-        public int Amount { get; private set; }
+        public int Amount { get; set; }
         [DataMember]
         public decimal Price { get; private set; }
         [DataMember]
-        public decimal TotalPrice { get; private set; }
+        public decimal TotalPrice { get; set; }
 
-        public Purchase(int productId, int amount)
+        public Purchase(int id, int amount, decimal price)
         {
-            var ps = new ProductService();
-            var product = ps.GetProductById(productId);
-
-            this.ProductId = product.Id;
+            this.ProductId = id;
             this.Amount = amount;
-            this.Price = product.Price;
-            this.TotalPrice = product.Price * amount;
+            this.Price = price;
+            this.TotalPrice = price * amount;
         }
     }
 }
