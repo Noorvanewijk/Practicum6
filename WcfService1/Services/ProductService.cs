@@ -21,11 +21,18 @@ namespace WebService.Services
 
         public ProductModel GetProductById(int id)
         {
-            using (var context = new databaseEntities())
+            try
             {
-                Stock s = (from x in context.Stocks where x.ProductId == id select x).First();
-                Product p = s.Product;
-                return new ProductModel(p, s);
+                using (var context = new databaseEntities())
+                {
+                    Stock s = (from x in context.Stocks where x.ProductId == id select x).First();
+                    Product p = s.Product;
+                    return new ProductModel(p, s);
+                }
+            }
+            catch
+            {
+                return null;
             }
         }
     }

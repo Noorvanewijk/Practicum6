@@ -21,9 +21,16 @@ namespace WebService.Services
 
         public UserModel GetUserById(int id)
         {
-            using (var context = new databaseEntities())
+            try
             {
-                return new UserModel((from x in context.Users where x.Id == id select x).First());
+                using (var context = new databaseEntities())
+                {
+                    return new UserModel((from x in context.Users where x.Id == id select x).First());
+                }
+            }
+            catch
+            {
+                return null;
             }
         }
 
@@ -31,7 +38,7 @@ namespace WebService.Services
         {
             using (var context = new databaseEntities())
             {
-                var u = new User { Username = username, Password = new string(username.ToCharArray().Reverse().ToArray()) };
+                var u = new User { Username = username, Password = new string(username.ToCharArray().Reverse().ToArray()), Funds = 100 };
                 context.Users.Add(u);
                 context.SaveChanges();
 
@@ -49,9 +56,16 @@ namespace WebService.Services
 
         public UserModel LoginUser(string username, string password)
         {
-            using (var context = new databaseEntities())
+            try
             {
-                return new UserModel((from x in context.Users where x.Username == username && x.Password == password select x).First());
+                using (var context = new databaseEntities())
+                {
+                    return new UserModel((from x in context.Users where x.Username == username && x.Password == password select x).First());
+                }
+            }
+            catch
+            {
+                return null;
             }
         }
     }

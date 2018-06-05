@@ -21,10 +21,16 @@ namespace WebService.Services
 
         public TransactionModel GetTransactionById(int id)
         {
-            using (var context = new databaseEntities())
+            try
             {
-                var t = (from x in context.Transactions where x.Id == id select x).First();
-                return new TransactionModel(t);
+                using (var context = new databaseEntities())
+                {
+                    return new TransactionModel((from x in context.Transactions where x.Id == id select x).First());
+                }
+            }
+            catch
+            {
+                return null;
             }
         }
 

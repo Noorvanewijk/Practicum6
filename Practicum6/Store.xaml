@@ -27,10 +27,6 @@
             <Label Grid.Row="1">Inventory:</Label>
 
             <ListBox Name="itemBox" Grid.ColumnSpan="3" Grid.Row="2" MinWidth="100">
-                <ListBoxItem>item</ListBoxItem>
-                <ListBoxItem>item</ListBoxItem>
-                <ListBoxItem>item</ListBoxItem>
-                <ListBoxItem>item</ListBoxItem>
             </ListBox>
 
             <Label Name="moneyLeft" Grid.Row="3">Money Left:</Label>
@@ -55,10 +51,6 @@
             <Label Grid.Row="1">Products:</Label>
 
             <ListBox x:Name="winkel" Grid.ColumnSpan="5" Grid.Row="2" MinWidth="100">
-                <ListBoxItem>item</ListBoxItem>
-                <ListBoxItem>item</ListBoxItem>
-                <ListBoxItem>item</ListBoxItem>
-                <ListBoxItem>item</ListBoxItem>
             </ListBox>
 
             <Button x:Name="purchase" Grid.Row="3" Grid.Column="4" Margin="122.667,25,123,22.667" Click="purchase_Click">Buy</Button>
