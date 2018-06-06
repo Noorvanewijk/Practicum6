@@ -55,7 +55,7 @@ namespace Practicum6
 
             var selected = purchases[itemBox.SelectedIndex];
 
-            if (selected.Amount - 1 == 0)
+            if (selected.Amount - 1 <= 0)
             {
                 purchases.RemoveAt(itemBox.SelectedIndex);
             }
@@ -96,8 +96,11 @@ namespace Practicum6
             }
             else
             {
-                selected.Amount += 1;
-                selected.TotalPrice = selected.Price * selected.Amount;
+                if (products[winkel.SelectedIndex].CurrentStock - selected.Amount > 0)
+                { 
+                    selected.Amount += 1;
+                    selected.TotalPrice = selected.Price * selected.Amount;
+                }
             }
 
             FillListBox();
